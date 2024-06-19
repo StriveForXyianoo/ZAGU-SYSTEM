@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <!----lin of jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+      <link rel="stylesheet" href="assets/style.css" />
+    <title>Zagu Ordering System</title>
+    <style>
+/* Base table styling */
+.table {
+  width: 100%;
+  margin-bottom: 1rem;
+  color: #212529;
+  border-collapse: collapse;
+}
+
+/* Table head */
+.table thead {
+  background-color: #f8f9fa;
+}
+
+.table thead th {
+  padding: 0.75rem;
+  vertical-align: bottom;
+  border-bottom: 2px solid #dee2e6;
+}
+
+/* Table body rows */
+.table tbody tr {
+  background-color: #fff;
+}
+
+.table tbody tr:nth-of-type(odd) {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Hover effect */
+.table tbody tr:hover {
+  background-color: rgba(0, 0, 0, 0.075);
+}
+
+/* Table cells */
+.table th,
+.table td {
+  padding: 0.75rem;
+  vertical-align: top;
+  border-top: 1px solid #dee2e6;
+}
+
+/* Table bordered */
+.table-bordered {
+  border: 1px solid #dee2e6;
+}
+
+.table-bordered th,
+.table-bordered td {
+  border: 1px solid #dee2e6;
+}
+
+.table-bordered thead th,
+.table-bordered thead td {
+  border-bottom-width: 2px;
+}
+
+/* Table footer */
+.table tfoot td {
+  padding: 0.75rem;
+  background-color: #f8f9fa;
+  border-top: 2px solid #dee2e6;
+  text-align: right;
+}
+
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <nav>
+        <div class="nav__header">
+          <div class="nav__logo">
+           
+          </div>
+          <div class="nav__menu__btn" id="menu-btn">
+            <i class="ri-menu-line"></i>
+          </div>
+        </div>
+        <ul class="nav__links" id="nav-links">
+          <li><a href="#home">HOME</a></li>
+          <li><a href="#special">SPECIAL</a></li>
+          <li><a href="#menu">MENU</a></li>
+          <li><a href="#Feedback">FEEDBACK</a></li>
+        </ul>
+      </nav>
+      <div class="section__container header__container" id="home">
+        <div class="header__image">
+          <img src="assets/images/zagunobg.png" alt="header" />
+        </div>
+        <div class="header__content">
+          <h2>Irresistibly Different</h2>
+          <h1>Zagu<br /><span>Time</span></h1>
+        </div>
+      </div>
+    </header>
+  
+    <section class="section__container banner__container" id="special">
+      <div class="banner__card">
+       
+      </div>
+      <div class="banner__card">
+       
+      </div>
+      <div class="banner__card">
+
+      </div>
+   
+
+      </div>
+    </section>
+
+    <section class="section__container order__container" id="menu">
+      <h3>Our Products</h3>
+      <h2 class="section__header">CHOOSE & ENJOY</h2>
+      
+      <div class="order__grid">
+        <div class="order__card">
+          <img src="assets/images/order1.jpg" alt="order" />
+          <h4>Mango Graham Shake(75)</h4>
+          
+          <button class="btn" onclick="add(this)" data-price="75" data-item="Mango Graham Shake">Add to Cart</button>
+        </div>
+        <div class="order__card">
+          <img src="assets/images/order2.webp" alt="order" />
+          <h4>Moca(75)</h4>
+          
+          <button class="btn"  onclick="add(this)" data-price="75" data-item="Moca">ADD TO CART</button>
+        </div>
+        <div class="order__card">
+          <img src="assets/images/order3.jfif" alt="order" />
+          <h4>Caramel Macchiato(75)</h4>
+         
+          <button class="btn"  onclick="add(this)" data-price="75" data-item="Caramel Macchiato">ADD TO CART</button>
+        </div>
+        <div class="order__card">
+            <img src="assets/images/order4.jpg" alt="order" />
+            <h4>Taho Shake(75)</h4>
+           
+            <button class="btn"  onclick="add(this)" data-price="75" data-item="Taho Shake">ADD TO CART</button>
+          </div>
+          <div class="order__card">
+            <img src="assets/images/order5.jpg" alt="order" />
+            <h4>Buko Pandan(75)</h4>
+           
+            <button class="btn"  onclick="add(this)" data-price="75" data-item="Buko Pandan">ADD TO CART</button>
+          </div>
+          <div class="order__card">
+            <img src="assets/images/order6.jfif" alt="order" />
+            <h4>Chocolate(75)</h4>
+           
+            <button class="btn"  onclick="add(this)" data-price="75" data-item="Chocolate">ADD TO CART</button>
+          </div>
+      </div>
+    </section>
+
+   
+
+    <section class="reservation" id="contact">
+      <div class="section__container reservation__container">
+        <h3>My Order</h3>
+        <h2 class="section__header">List of Order</h2>
+        <table class="table table table-hover table-stripped table-bordered">
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Quantity</th>
+              <th>Amount</th>
+              
+            </tr>
+          </thead>
+          <tbody>
+
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="2">Total</td>
+              <td> <span id="total"></span></td>
+            </tr>
+          </tfoot>
+        </table>
+        <form action="order.html">
+          <input type="text" placeholder="NAME" />
+          <input type="email" placeholder="EMAIL" />
+          <input type="text" placeholder="ADDRESS" />
+          <input type="date" placeholder="DATE" />
+
+          <button class="btn" type="submit">Place Order</button>
+        </form>
+      </div>
+      
+     
+    </section>
+    <section class="section__container order__container" id="Feedback">
+      <h3>Customer Feedback</h3>
+      
+      <div class="section__container reservation__container">
+        <h2 class="section__header">GIVE US FEEDBACK</h2>
+        <form action="feedback.html">
+          <input type="text" placeholder="COMMENTS" />
+          <input type="number" placeholder="RATE 1-5"  min="1" max="5" step="1" maxlength="1" id="rateInput" />
+
+
+          <button class="btn" type="submit">Submit</button>
+        </form>
+      </div>
+      <script>
+        document.getElementById('rateInput').addEventListener('input', function(e) {
+            const value = e.target.value;
+            if (value.length > 1 || value < 1 || value > 5) {
+                e.target.value = value.slice(0, 1);  // Limit to 1 character
+                if (value < 1 || value > 5) {
+                    e.target.value = '';  // Clear if out of range
+                }
+            }
+        });
+    </script>
+      
+     
+    </section>
+
+   
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="assets/index.js"></script>
+    <script>
+var total = 0;
+//declare an array
+var order = [];
+
+function add(e) {
+    var item = $(e).data('item');
+    var price = $(e).data('price');
+    total += price;
+    $('#total').text(total);
+   
+    // Check if item already exists in the order
+    var existingItem = order.find(o => o.item === item);
+    
+    if (existingItem) {
+        // Increment quantity if item already exists
+        existingItem.quantity += 1;
+        existingItem.price += price; // Update the total price for that item
+    } else {
+        // Add new item to the order
+        order.push({item: item, price: price, quantity: 1});
+    }
+
+    // Display the array in the table
+    $('table tbody').html('');
+    order.forEach(function(o) {
+        $('table tbody').append('<tr><td>' + o.item + '</td><td>' + o.quantity + '</td><td>' + o.price + '</td></tr>');
+    });
+}
+
+      
+      
+      
+      
+    </script>
+  </body>
+</html>
